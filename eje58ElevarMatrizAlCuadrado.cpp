@@ -6,10 +6,11 @@ Crear una función llamada “cuadradoMatriz” que reciba el vector y eleve al 
 Mostrar la matriz elevada al cuadrado.
 */
 #include <iostream>
+const int vertical = 3, horizontal = 2;//Deben declarase desde el inicio SIEMPRE
 
-void print(int[][horizontal]);
+void print(int [][horizontal]);
+void cuadradoMatriz(int [][horizontal]);
 
-const int vertical = 3, horizontal = 2;
 int main(){
     std::cout<<"\n\n=========Este programa eleva al cuadrado los elementos de una matriz===========\n\n";
     
@@ -17,22 +18,11 @@ int main(){
     {1,2,3
     ,4,5,6};
     print(matriz);
-
-
-
-    /*
-    for (int i = 0; i < vertical; i++)
-    {
-        for (int j = 0; j < horizontal; j++)
-        {
-            std::cout<<" "<<matriz[i][j];
-        }
-        std::cout<<"\n";
-    }
-    */
+    cuadradoMatriz(matriz);
+    std::cout<<"\nLa matriz elevada al cuadrado es: \n";
+    print(matriz);
 
     std::cout<<"\n\nPresiona enter para continiuar...\n\n";
-    std::cin.ignore();
     std::cin.get();
 }
 void print(int matriz[][horizontal]){
@@ -43,5 +33,14 @@ void print(int matriz[][horizontal]){
             std::cout<<" "<<matriz[i][j]<<" ";
         }
     std::cout<<"\n";        
+    }
+}
+void cuadradoMatriz(int matriz[][horizontal]){
+    for (int i = 0; i < vertical; i++)
+    {
+        for (int j = 0; j < horizontal; j++)
+        {
+            matriz[i][j]=matriz[i][j]*matriz[i][j];
+        }
     }
 }
